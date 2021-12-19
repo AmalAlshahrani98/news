@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "725055742139",
+    "project_id": "nwes-d71b5",
+    "storage_bucket": "nwes-d71b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725055742139:android:7bc9de94f47a2a3fd2499e",
+        "android_client_info": {
+          "package_name": "com.newsApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725055742139-5ik4jau4o5bouv7t3h6l8ukoaetdqr2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_uI1_CbMNWgPapQcgmHYi5nzsNn9APm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725055742139-5ik4jau4o5bouv7t3h6l8ukoaetdqr2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
