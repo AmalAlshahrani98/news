@@ -21,6 +21,9 @@ class NewsViewModel: ViewModel() {
     val newsErrorLiveData = MutableLiveData<String>()
 
 
+    var item: NewsViewModel? = null
+    var selectedItemMutableLiveDate = MutableLiveData<NewsViewModel>()
+
 
 
     fun callNews(){

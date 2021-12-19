@@ -3,6 +3,7 @@ package com.newsApp.view.identity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -37,13 +38,14 @@ class RegisterActivity : AppCompatActivity() {
 
                      .addOnCompleteListener(){
                          task ->
+                         Log.d("Test",email)
 
                          if (task.isSuccessful){
                              val firebaseUser:FirebaseUser = task.result!!.user!!
                              Toast.makeText(this,"User Registered Successfully",Toast.LENGTH_SHORT)
                                  .show()
 
-                             val intent = Intent(this, LogoutActivity::class.java)
+                             val intent = Intent(this, MainActivity::class.java)
                              intent.putExtra("UserId",firebaseUser.uid)
                              intent.putExtra("Email",firebaseUser.email)
                              startActivity(intent)

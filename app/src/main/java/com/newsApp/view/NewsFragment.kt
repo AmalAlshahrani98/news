@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.newsApp.R
 import com.newsApp.databinding.FragmentNewsBinding
 import com.newsApp.model.Article
@@ -16,6 +17,7 @@ import com.newsApp.view.adapters.NewsAdapter
 class NewsFragment : Fragment() {
     private lateinit var binding: FragmentNewsBinding
 lateinit var newsAdapter: NewsAdapter
+private lateinit var selectedItem:NewsViewModel
 val list = mutableListOf<Article>()
 private val newsViewModel: NewsViewModel by activityViewModels()
 
@@ -42,13 +44,19 @@ private val newsViewModel: NewsViewModel by activityViewModels()
         newsViewModel.newsLiveData.observe(viewLifecycleOwner,{
             list.addAll(it)
             newsAdapter.notifyDataSetChanged()
+            var selectedItem = it
+            newsViewModel.selectedItemMutableLiveDate.observe(viewLifecycleOwner, Observer {
+                it?.let { item ->
+                }
+
+
+                newsViewModel.newsErrorLiveData.observe(viewLifecycleOwner, {
+                    it?.let {
+                        Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+                    }
+                })
+
+            })
         })
 
-        newsViewModel.newsErrorLiveData.observe(viewLifecycleOwner,{
-            it?.let{
-                Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-}
+    }}

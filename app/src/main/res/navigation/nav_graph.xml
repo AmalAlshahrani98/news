@@ -16,5 +16,9 @@
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.newsApp.view.SavedNewsFragment"
-        android:label="SavedNewsFragment" />
+        android:label="SavedNewsFragment" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+    </fragment>
 </navigation>
