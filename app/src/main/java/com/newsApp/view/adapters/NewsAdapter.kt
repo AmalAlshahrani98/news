@@ -1,18 +1,19 @@
 package com.newsApp.view.adapters
 
-import android.media.Image
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.newsApp.R
 import com.newsApp.model.Article
+import com.newsApp.view.NewsViewModel
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
-class NewsAdapter(private val list: List<Article>) :
+class NewsAdapter(private val list: List<Article>,val viewModel: NewsViewModel) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapter.NewsViewHolder {
         return NewsViewHolder(
@@ -32,6 +33,13 @@ class NewsAdapter(private val list: List<Article>) :
         holder.name.text = item.author
         holder.title.text = item.title
         holder.description.text = item.description
+
+       holder.saveImageButton.setOnClickListener{
+          viewModel.addMyNewsLiveData(viewModel)
+           Log.d("tag","my log")
+
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -44,5 +52,6 @@ class NewsAdapter(private val list: List<Article>) :
         var name: TextView = itemView.findViewById(R.id.news_name_textview)
         var title: TextView = itemView.findViewById(R.id.news_title_textview)
         var description: TextView = itemView.findViewById(R.id.news_description_textview)
+        var saveImageButton: ImageButton = itemView.findViewById(R.id.save_news_ImageButton)
     }
 }

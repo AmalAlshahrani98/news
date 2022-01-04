@@ -35,7 +35,7 @@ class ApiServiceRepository(val context: Context) {
 
         //this function will help get the api service
         fun get(): ApiServiceRepository{
-            return instance ?: throw Exception("ApiServiceRepostiry must be initialized")
+            return instance ?: throw Exception("ApiServiceRepository must be initialized")
         }
     }
 }

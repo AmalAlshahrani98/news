@@ -3,19 +3,19 @@ package com.newsApp.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Article(
-    @SerializedName("id")
-    val id: String,
+data class SaveNews(
     @SerializedName("author")
     val author: String,
     @SerializedName("content")
     val content: String,
     @SerializedName("description")
     val description: String,
+    @SerializedName("id")
+    val id: String,
     @SerializedName("publishedAt")
     val publishedAt: String,
     @SerializedName("source")
-    val source: Source,
+    val source: String,
     @SerializedName("title")
     val title: String,
     @SerializedName("url")
@@ -23,5 +23,7 @@ data class Article(
     @SerializedName("urlToImage")
     val urlToImage: String,
     @SerializedName("userid")
-val userid: String
+    val userid: String
+
+
 )

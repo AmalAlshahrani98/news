@@ -30,8 +30,10 @@ class LoginActivity : AppCompatActivity() {
 
         }
         loginButton.setOnClickListener(){
-            val email:String = emailAddress.text.toString()
+            val email:String = emailAddress.text.toString().trim()
             val password : String = password.text.toString()
+            Log.d("LoginActivityLog",email)
+
             if (email.isNotEmpty() &&password.isNotEmpty() ){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener {

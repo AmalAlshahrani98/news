@@ -29,9 +29,10 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
          registerButton.setOnClickListener(){
-             val email:String = emailAddress.text.toString()
+             val email:String = emailAddress.text.toString().trim()
              val password:String = password.text.toString()
 
+             Log.d("Register",email)
 
              if (email.isNotEmpty() && password.isNotEmpty()){
                  FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)

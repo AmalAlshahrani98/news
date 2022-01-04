@@ -4,15 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/newsFragment">
-
-    <fragment
-        android:id="@+id/newsFragment"
-        android:name="com.newsApp.view.NewsFragment"
-        android:label="NewsFragment" >
-        <action
-            android:id="@+id/action_newsFragment_to_savedNewsFragment"
-            app:destination="@id/savedNewsFragment" />
-    </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.newsApp.view.SavedNewsFragment"
@@ -20,5 +11,13 @@
         <action
             android:id="@+id/action_savedNewsFragment_to_newsFragment"
             app:destination="@id/newsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.newsApp.view.NewsFragment"
+        android:label="NewsFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_savedNewsFragment"
+            app:destination="@id/savedNewsFragment" />
     </fragment>
 </navigation>

@@ -34,7 +34,7 @@ private val newsViewModel: NewsViewModel by activityViewModels()
         super.onViewCreated(view, savedInstanceState)
         observer()
         newsViewModel.callNews()
-        newsAdapter = NewsAdapter(list)
+        newsAdapter = NewsAdapter(list,newsViewModel)
        binding.newsRecyclerview.adapter = newsAdapter
 
 
