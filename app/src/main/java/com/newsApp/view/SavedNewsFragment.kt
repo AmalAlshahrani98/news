@@ -24,7 +24,7 @@ class SavedNewsFragment : Fragment() {
 
     private  lateinit var savedAdapter : SavedAdapter
       private lateinit var selectedItem:SavedViewModel
-     val list = mutableListOf<SaveNews>()
+     var list = mutableListOf<Article>()
       private val savedViewModel:SavedViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -33,7 +33,7 @@ class SavedNewsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        binding = FragmentSavedNewsBinding.inflate(inflater,container,false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 
 
@@ -45,7 +45,7 @@ class SavedNewsFragment : Fragment() {
        observer()
         savedViewModel.callMyNews()
 
-        savedAdapter = SavedAdapter(list,SavedViewModel())
+        savedAdapter = SavedAdapter(list,savedViewModel)
 //        here
         binding.savednewsRecyclerview.adapter = savedAdapter
 
@@ -54,17 +54,17 @@ class SavedNewsFragment : Fragment() {
 
     }
 
-//  private fun SavedAdapter(list: MutableList<SaveNews>): SavedAdapter{}
+//         private fun SavedAdapter(list: MutableList<SaveNews>): SavedAdapter{}
 
 
 
     fun observer(){
-        savedViewModel.saveLiveData.observe(viewLifecycleOwner,{
-
+        savedViewModel.myNewsLiveData.observe(viewLifecycleOwner,{
 
             list.addAll(it)
 
 
+savedAdapter.notifyDataSetChanged()
 
 
               
@@ -80,5 +80,6 @@ class SavedNewsFragment : Fragment() {
         }
        
     }
-    
 
+
+//Log.d("tag","my log")

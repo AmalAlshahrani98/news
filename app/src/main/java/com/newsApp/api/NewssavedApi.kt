@@ -11,16 +11,16 @@ interface NewssavedApi {
     @GET("/Article")
     suspend fun getMyNews(
 
-    ):Response<List<SaveNews>>
+    ):Response<List<Article>>
 
     @POST("/Article")
     suspend fun addMyNews(
-        @Body MyNewsBody:SaveNews
+        @Body MyNewsBody:Article
     ):Response<ResponseBody>
 
     @PUT("/Article{id}")
     suspend fun editMyNews(@Path("id")Id:String,
-    @Body MyNewsBody: SaveNews):Response<SaveNews>
+    @Body MyNewsBody: Article):Response<Article>
 
     @DELETE("/Article{id}")
     suspend fun deleteMyNews(@Path("id")Id: String):Response<ResponseBody>

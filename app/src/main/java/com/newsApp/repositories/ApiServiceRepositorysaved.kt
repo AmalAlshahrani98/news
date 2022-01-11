@@ -21,9 +21,9 @@ class ApiServiceRepositoryEdit(val context: Context) {
 
     suspend fun getMyNews() = retrofitApi.getMyNews()
 
-    suspend fun addMyNews(MyNewsBody:SaveNews) = retrofitApi.addMyNews(MyNewsBody)
+    suspend fun addMyNews(MyNewsBody:Article) = retrofitApi.addMyNews(MyNewsBody)
 
-    suspend fun editMyNews(id:String,MyNewsBody: SaveNews) = retrofitApi.editMyNews(id,MyNewsBody)
+    suspend fun editMyNews(id:String,MyNewsBody: Article) = retrofitApi.editMyNews(id,MyNewsBody)
 
     suspend fun  deleteMyNews(id: String) = retrofitApi.deleteMyNews(id)
 

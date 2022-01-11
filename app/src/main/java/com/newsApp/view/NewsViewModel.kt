@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.newsApp.model.Article
+import com.newsApp.model.SaveNews
 import com.newsApp.model.news
 import com.newsApp.repositories.ApiServiceRepository
 import com.newsApp.repositories.ApiServiceRepositoryEdit
@@ -17,7 +18,7 @@ class NewsViewModel: ViewModel() {
 
     private val apiRepository = ApiServiceRepository.get()
     private val apiRepoSaved = ApiServiceRepositoryEdit.get()
-    val addLiveData = MutableLiveData<List<Article>>()
+    val addLiveData = MutableLiveData<String>()
     val deleteErrorLiveData = MutableLiveData<String>()
     val newsLiveData = MutableLiveData<List<Article>>()
     val newsErrorLiveData = MutableLiveData<String>()
@@ -54,14 +55,14 @@ class NewsViewModel: ViewModel() {
 
     }
 
-    fun addMyNewsLiveData(MyNewsBody: NewsViewModel) {
+    fun addMyNewsLiveData(MyNewsBody: Article) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val response = apiRepository.getNews()
+                val response = apiRepoSaved.addMyNews(MyNewsBody)
                 if (response.isSuccessful) {
                     response.body()?.run {
                         Log.d(TAG, this.toString())
-                        addLiveData.postValue(this.articles)
+                        addLiveData.postValue("success")
                         Log.d(TAG, "response.success ${response.message()}")
                     }
                 } else {
@@ -75,6 +76,9 @@ class NewsViewModel: ViewModel() {
             }
         }
     }
+
+
+
 }
 
 

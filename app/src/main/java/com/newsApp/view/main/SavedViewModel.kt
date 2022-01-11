@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.newsApp.model.Article
 import com.newsApp.model.SaveNews
 import com.newsApp.repositories.ApiServiceRepositoryEdit
-import com.newsApp.view.NewsViewModel
-import io.grpc.InternalChannelz.id
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -18,11 +16,11 @@ private const val TAG = "EditViewModel"
 class SavedViewModel :ViewModel() {
    private val apiRepo = ApiServiceRepositoryEdit.get()
 
-   val myNewsLiveData = MutableLiveData<List<SaveNews>>()
+   val myNewsLiveData = MutableLiveData<List<Article>>()
     val editLiveData = MutableLiveData<String>()
     val deleteLiveData = MutableLiveData<String>()
-    val saveLiveData = MutableLiveData<List<SaveNews>>()
-    val saveErrorLiveData = MutableLiveData<List<SaveNews>>()
+    val saveLiveData = MutableLiveData<String>()
+    val saveErrorLiveData = MutableLiveData<String>()
 
     fun callMyNews() {
 
@@ -46,7 +44,7 @@ class SavedViewModel :ViewModel() {
 
         }
     }
-        fun editMyNews(MyNewsBody: SaveNews) {
+        fun editMyNews(MyNewsBody: Article) {
             viewModelScope.launch(Dispatchers.IO) {
                 try {
                     val response = apiRepo.editMyNews(MyNewsBody.userid, MyNewsBody)
@@ -62,9 +60,9 @@ class SavedViewModel :ViewModel() {
                 }
             }
         }
-            fun deleteMyNews(saveNews: SaveNews) {
+            fun deleteMyNews(Article: Article) {
                 viewModelScope.launch(Dispatchers.IO) {
-                    val response = apiRepo.deleteMyNews(saveNews.id)
+                    val response = apiRepo.deleteMyNews(Article.id)
                     if (response.isSuccessful) {
                         response.body()?.run {
                             Log.d(TAG, this.toString())
@@ -75,31 +73,29 @@ class SavedViewModel :ViewModel() {
                 }
             }
 
-    fun addMyNewsLiveData(MyNewsBody: SaveNews) {
+    fun addMyNewsLiveData(MyNewsBody: Article) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = apiRepo.addMyNews(MyNewsBody)
-                if (response.isSuccessful) {
+                if (!response.isSuccessful) {
                     response.body()?.run {
                         Log.d(TAG, this.toString())
-                      //  saveLiveData.postValue("success")
+                       saveLiveData.postValue("success")
 
                     }
                 } else {
                     Log.d(TAG,"Not Succes ${response.message()}")
-//                    saveErrorLiveData.postValue(response.message())
+                    saveErrorLiveData.postValue(response.message())
 
                 }
             } catch (e: java.lang.Exception) {
                 Log.d(TAG, e.message.toString())
-              //  saveErrorLiveData.postValue(e.message.toString())
+                saveErrorLiveData.postValue(e.message.toString())
             }
         }
     }
 
         }
-
-
 
 
 

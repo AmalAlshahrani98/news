@@ -29,14 +29,14 @@ class NewsAdapter(private val list: List<Article>,val viewModel: NewsViewModel) 
         val item = list[position]
 
 
-      Picasso.get().load(item.urlToImage).into(holder.image)
+        Picasso.get().load(item.urlToImage).into(holder.image)
         holder.name.text = item.author
         holder.title.text = item.title
         holder.description.text = item.description
 
-       holder.saveImageButton.setOnClickListener{
-          viewModel.addMyNewsLiveData(viewModel)
-           Log.d("tag","my log")
+        holder.saveImageButton.setOnClickListener{
+            viewModel.addMyNewsLiveData(item)
+            Log.d("tag","my log")
 
 
         }

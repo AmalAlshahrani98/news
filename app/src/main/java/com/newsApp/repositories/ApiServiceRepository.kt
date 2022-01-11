@@ -2,6 +2,8 @@ package com.newsApp.repositories
 
 import android.content.Context
 import com.newsApp.api.NewsApi
+import com.newsApp.model.Article
+import com.newsApp.model.SaveNews
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
@@ -18,7 +20,10 @@ class ApiServiceRepository(val context: Context) {
     private val retrofitApi = retrofitService.create(NewsApi::class.java)
 
 
-    suspend fun getNews() = retrofitApi.getNews()
+  suspend fun getNews() = retrofitApi.getNews()
+// suspend fun addNews(Article:Article) = retrofitApi.addMyNews(Article())
+//  suspend fun editNews(Article:Article) = retrofitApi.editMyNews(id,mynews)
+// suspend fun deleteNews(Article:Article) = retrofitApi.deleteMyNews(Article)
 
 
 
