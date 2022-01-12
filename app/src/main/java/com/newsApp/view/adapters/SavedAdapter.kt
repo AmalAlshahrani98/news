@@ -14,27 +14,9 @@ import com.newsApp.model.Article
 import com.newsApp.view.main.SavedViewModel
 import com.squareup.picasso.Picasso
 
-class SavedAdapter(private val list: List<Article>
+class SavedAdapter(private val list: MutableList<Article>
 , val savedViewModel:SavedViewModel) :
     RecyclerView.Adapter<SavedAdapter.news>() {
-
-    val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Article>() {
-        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return  oldItem == newItem
-        }
-    }
-
-    private val differ = AsyncListDiffer(this,DIFF_CALLBACK)
-
-    // to give the differ our data(the list)
-
-    fun submitList(list: List<Article>){
-        differ.submitList(list)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SavedAdapter.news {
         return news(
@@ -49,20 +31,22 @@ class SavedAdapter(private val list: List<Article>
     override fun onBindViewHolder(holder: news, position: Int) {
         val item = list[position]
 //      item=differ.currentlist[position]
-        Picasso.get().load(item.urlToImage).into(holder.saveImage)
+        if(item.urlToImage.isNotEmpty() && item.urlToImage.isNotBlank())
+        {
+            Picasso.get().load(item.urlToImage).into(holder.saveImage)
+        }
          holder.name.text = item.author
         holder.title.text = item.title
         holder.description. text = item.description
 
-        holder.saveImageButton.setOnClickListener{
-           savedViewModel.addMyNewsLiveData(item)
-
-        }
+//        holder.saveImageButton.setOnClickListener{
+//           savedViewModel.addMyNewsLiveData(item)
+//
+//        }
         holder.deleteImageButton.setOnClickListener {
-            var delete = mutableListOf<Article>()
-            delete.addAll(differ.currentList)
-            delete.remove(item)
-            differ.submitList(delete.toList())
+
+            list.remove(item)
+            notifyDataSetChanged()
             savedViewModel.deleteMyNews(item)
         }
 
@@ -70,7 +54,7 @@ class SavedAdapter(private val list: List<Article>
 
     override fun getItemCount(): Int {
         return list.size
-//        differ.size
+
     }
 
 
@@ -82,7 +66,7 @@ class SavedAdapter(private val list: List<Article>
         var name:TextView = itemView .findViewById(R.id.save_name_textview)
         var title : TextView = itemView .findViewById(R.id.save_title_textview)
         var description :TextView = itemView.findViewById(R.id.save_description_textview)
-        var saveImageButton :TextView = itemView.findViewById(R.id.save_news_ImageButton)
+//        var saveImageButton :TextView = itemView.findViewById(R.id.save_news_ImageButton)
         var deleteImageButton: ImageButton = itemView.findViewById(R.id.delete_image_Button)
     }
 }

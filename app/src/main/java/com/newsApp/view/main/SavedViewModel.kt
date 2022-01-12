@@ -64,10 +64,8 @@ class SavedViewModel :ViewModel() {
                 viewModelScope.launch(Dispatchers.IO) {
                     val response = apiRepo.deleteMyNews(Article.id)
                     if (response.isSuccessful) {
-                        response.body()?.run {
-                            Log.d(TAG, this.toString())
-                            deleteLiveData.postValue("successful")
-                        }
+                        Log.d(TAG, this.toString())
+
                     }
 
                 }

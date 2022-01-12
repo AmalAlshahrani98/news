@@ -45,6 +45,7 @@ class SavedNewsFragment : Fragment() {
        observer()
         savedViewModel.callMyNews()
 
+
         savedAdapter = SavedAdapter(list,savedViewModel)
 //        here
         binding.savednewsRecyclerview.adapter = savedAdapter

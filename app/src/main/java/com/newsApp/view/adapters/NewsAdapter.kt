@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.newsApp.R
 import com.newsApp.model.Article
+import com.newsApp.model.Source
 import com.newsApp.view.NewsViewModel
 import com.squareup.picasso.Picasso
 
@@ -27,6 +28,8 @@ class NewsAdapter(private val list: List<Article>,val viewModel: NewsViewModel) 
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = list[position]
+
+
 
 
         Picasso.get().load(item.urlToImage).into(holder.image)

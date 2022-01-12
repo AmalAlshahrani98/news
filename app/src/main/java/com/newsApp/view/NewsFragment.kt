@@ -50,12 +50,9 @@ private val newsViewModel: NewsViewModel by activityViewModels()
 
         })
 
-        newsViewModel.selectedItemMutableLiveDate.observe(viewLifecycleOwner, Observer {
+        newsViewModel.selectedItemMutableLiveDate.observe(viewLifecycleOwner,  {
             it?.let { item ->
             }
-
-
-
 
         })
 
