@@ -4,9 +4,11 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.newsApp.R
@@ -37,12 +39,13 @@ class SavedAdapter(private val list: MutableList<Article>
         }
          holder.name.text = item.author
         holder.title.text = item.title
-        holder.description. text = item.description
+        holder.description.text = item.description
+        holder.editTextNote.setText(item.note)
 
 //        holder.saveImageButton.setOnClickListener{
-//           savedViewModel.addMyNewsLiveData(item)
+//          savedViewModel.addMyNewsLiveData(item)
 //
-//        }
+//       }
         holder.deleteImageButton.setOnClickListener {
 
             list.remove(item)
@@ -50,6 +53,13 @@ class SavedAdapter(private val list: MutableList<Article>
             savedViewModel.deleteMyNews(item)
         }
 
+        holder.editImageButton.setOnClickListener {
+            var text = holder.editTextNote.text.toString()
+            item.note = text
+            savedViewModel.editMyNews(item)
+            holder.editTextNote.isFocusable = false
+
+        }
    }
 
     override fun getItemCount(): Int {
@@ -68,5 +78,7 @@ class SavedAdapter(private val list: MutableList<Article>
         var description :TextView = itemView.findViewById(R.id.save_description_textview)
 //        var saveImageButton :TextView = itemView.findViewById(R.id.save_news_ImageButton)
         var deleteImageButton: ImageButton = itemView.findViewById(R.id.delete_image_Button)
+        var editImageButton :ImageButton =itemView.findViewById(R.id.edit_image_Button)
+        var editTextNote :EditText = itemView.findViewById(R.id.edit_text_note)
     }
 }

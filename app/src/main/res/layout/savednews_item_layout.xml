@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
     android:gravity="center">
 
     <ImageView
@@ -25,42 +25,56 @@
 
         <TextView
             android:id="@+id/save_name_textview"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/save_title_textview"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="20dp"
             android:text="TextView" />
 
         <TextView
             android:id="@+id/save_description_textview"
-            android:layout_width="120dp"
-            android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="TextView" />
+
+        <EditText
+            android:id="@+id/edit_text_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Add your note"
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/delete_image_Button"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_baseline_delete_24" />
 
         <ImageButton
-            android:id="@+id/edit_image_Button"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:id="@+id/share_image_Button"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_baseline_share_24" />
+
+        <ImageButton
+            android:id="@+id/edit_image_Button"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     </LinearLayout>
 </LinearLayout>

@@ -23,5 +23,8 @@ data class Article(
     @SerializedName("urlToImage")
     val urlToImage: String,
     @SerializedName("userid")
-val userid: String
+    val userid: String,
+    @SerializedName("note")
+    var note: String
+
 )

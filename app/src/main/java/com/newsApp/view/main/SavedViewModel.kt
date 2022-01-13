@@ -47,7 +47,7 @@ class SavedViewModel :ViewModel() {
         fun editMyNews(MyNewsBody: Article) {
             viewModelScope.launch(Dispatchers.IO) {
                 try {
-                    val response = apiRepo.editMyNews(MyNewsBody.userid, MyNewsBody)
+                    val response = apiRepo.editMyNews(MyNewsBody.id, MyNewsBody)
 //                 هنا
                     if (response.isSuccessful) {
                         response.body()?.run {

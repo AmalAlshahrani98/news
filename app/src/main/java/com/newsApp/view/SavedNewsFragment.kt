@@ -62,10 +62,11 @@ class SavedNewsFragment : Fragment() {
     fun observer(){
         savedViewModel.myNewsLiveData.observe(viewLifecycleOwner,{
 
+            list.clear()
             list.addAll(it)
 
 
-savedAdapter.notifyDataSetChanged()
+            savedAdapter.notifyDataSetChanged()
 
 
               

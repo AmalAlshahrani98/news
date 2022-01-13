@@ -18,7 +18,7 @@ interface NewssavedApi {
         @Body MyNewsBody:Article
     ):Response<ResponseBody>
 
-    @PUT("/Article{id}")
+    @PUT("/Article/{id}")
     suspend fun editMyNews(@Path("id")Id:String,
     @Body MyNewsBody: Article):Response<Article>
 
