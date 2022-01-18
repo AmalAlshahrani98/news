@@ -1,6 +1,7 @@
 package com.newsApp.view.identity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,11 @@ import com.newsApp.MainActivity
 import com.newsApp.R
 
 private const val TAG = "LoginActivity"
+
+lateinit var sharedPref:SharedPreferences
+lateinit var sharedPrefEditor:SharedPreferences.Editor
+
+
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +49,11 @@ class LoginActivity : AppCompatActivity() {
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
                                 Toast.makeText(this,"User Registered Successfully", Toast.LENGTH_SHORT)
                                     .show()
+
+                                sharedPrefEditor = sharedPref.edit()
+                                sharedPrefEditor.putBoolean("log", true)
+                                sharedPrefEditor.commit()
+
 
                                 val intent = Intent(this, MainActivity::class.java)
                                 intent.putExtra("UserId",firebaseUser.uid)

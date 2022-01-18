@@ -8,14 +8,17 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.auth.FirebaseAuth
 import com.newsApp.databinding.ActivityMainBinding
 import com.newsApp.repositories.ApiServiceRepository
 import com.newsApp.repositories.ApiServiceRepositoryEdit
 import com.newsApp.view.SavedNewsFragment
+import com.newsApp.view.identity.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         createNotificationChannel()
         sendNotification()
+
+
     }
     // notification channel
     private fun createNotificationChannel(){
@@ -76,6 +81,5 @@ class MainActivity : AppCompatActivity() {
         with(NotificationManagerCompat.from(this)){
             notify(notification, builder.build())
         }
-
-
+//
     }}

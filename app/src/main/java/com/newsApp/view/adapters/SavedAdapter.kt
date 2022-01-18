@@ -1,5 +1,11 @@
 package com.newsApp.view.adapters
 
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.net.Uri
+import android.provider.MediaStore
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +14,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -15,8 +22,9 @@ import com.newsApp.R
 import com.newsApp.model.Article
 import com.newsApp.view.main.SavedViewModel
 import com.squareup.picasso.Picasso
+import java.io.ByteArrayOutputStream
 
-class SavedAdapter(private val list: MutableList<Article>
+class SavedAdapter(val context: Context, private val list: MutableList<Article>
 , val savedViewModel:SavedViewModel) :
     RecyclerView.Adapter<SavedAdapter.news>() {
 
@@ -53,6 +61,7 @@ class SavedAdapter(private val list: MutableList<Article>
             savedViewModel.deleteMyNews(item)
         }
 
+
         holder.editImageButton.setOnClickListener {
             var text = holder.editTextNote.text.toString()
             item.note = text
@@ -60,7 +69,34 @@ class SavedAdapter(private val list: MutableList<Article>
             holder.editTextNote.isFocusable = false
 
         }
-   }
+        ///////////////////////////////////////
+        holder.shareImageButton.setOnClickListener {
+            val link = item.urlToImage
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT , link)
+            context.startActivity(Intent.createChooser(intent , "Share Link"))
+
+
+        }
+
+    }
+    private fun getBitmapFromView(view: ImageView):Bitmap?{
+        val bitmap= Bitmap.createBitmap(view.width,view.height,Bitmap.Config.ARGB_8888)
+        val paint= Canvas(bitmap)
+        view.draw(paint)
+        return bitmap
+
+    }
+    private fun getImageUri(inContext: Context, inImage:Bitmap): Uri?{
+        val byte= ByteArrayOutputStream()
+        inImage.compress(Bitmap.CompressFormat.JPEG,100,byte)
+        val path= MediaStore.Images.Media.insertImage(inContext.contentResolver,inImage,"Title",null)
+        return Uri.parse(path)
+
+
+        }
+
 
     override fun getItemCount(): Int {
         return list.size
@@ -80,5 +116,6 @@ class SavedAdapter(private val list: MutableList<Article>
         var deleteImageButton: ImageButton = itemView.findViewById(R.id.delete_image_Button)
         var editImageButton :ImageButton =itemView.findViewById(R.id.edit_image_Button)
         var editTextNote :EditText = itemView.findViewById(R.id.edit_text_note)
+        var shareImageButton: ImageButton = itemView.findViewById(R.id.ShareImageButton)
     }
 }

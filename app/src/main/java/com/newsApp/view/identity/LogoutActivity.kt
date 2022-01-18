@@ -15,7 +15,7 @@ class LogoutActivity : AppCompatActivity() {
 
         val userIdTextView: TextView = findViewById(R.id.userID_TextView)
         val emailAddressTextView: TextView = findViewById(R.id.emailAddress_TextView)
-        val logoutButton: Button = findViewById(R.id.logout_button)
+        val logoutButton: Button = findViewById(R.id.logout_buttonx)
 
 //        مثل الموجود في الرجستر والكتفتي نجمع المعلوملات
         val userId = intent.getStringExtra("UserId")
@@ -28,7 +28,7 @@ class LogoutActivity : AppCompatActivity() {
             // destroy session with firebase >> logout
             FirebaseAuth.getInstance().signOut()
             // move from the secreen to login
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 

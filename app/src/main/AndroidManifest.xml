@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.newsApp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +16,8 @@
         android:theme="@style/Theme.News">
         <activity
             android:name=".view.identity.LogoutActivity"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="MissingClass" />
         <activity
             android:name=".view.main.Splash"
             android:exported="true">
