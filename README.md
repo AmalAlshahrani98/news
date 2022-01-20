@@ -7,8 +7,9 @@
 Tuwaiq Academy final Project.
 
 NEWS Android Application
+
 ## Overview:
-![Uploading news.jfif…]()
+
 
 This project represents an android application **NEWS**
 which helps the user to read news whenever he want.
@@ -27,9 +28,7 @@ This application was built using the following technologies:
 
 ## Wireframes and User stories:
 
-![Wireframe](https://g.top4top.io/p_2162gto4c3.png)
 
-link to Figma [Figma Wireframe](https://www.figma.com/file/EijD6OOHpwJd3i9X3bGNM1/NEARMe-App?node-id=4%3A273)
 
 
 - As a user,I want to read news on app rather than tv or newspaper so that I can save my time.
