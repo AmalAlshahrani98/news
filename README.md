@@ -13,6 +13,8 @@ NEWS Android Application
 
 
 This project represents an android application **NEWS**
+
+
 which helps the user to read news whenever he want.
 
 ## Technologies used:
