@@ -1,5 +1,8 @@
 ![image](https://user-images.githubusercontent.com/91452454/143868953-549a9960-66ae-44a3-9461-e9b9dedc83d7.png)
-#final Capstone 
+
+
+# final Capstone 
+
 
 Tuwaiq Academy final Project.
 
@@ -97,9 +100,30 @@ link to Figma [Figma Wireframe](https://www.figma.com/file/EijD6OOHpwJd3i9X3bGNM
    }
 ```
 
+## Development Process and Problem-solving Strategy:
 
+planning :
 
+On the beginning searched for different news apps to have full understanding about what I will work on and to have an idea about the design after that I designed my app using Figma then transformed the design on Android Studio. wrote down what my app need and what features I want to put on it, eventually start coding and working on my app.
 
+development process :
 
+*Searched:
+
+for different apps and what is the basic features in every app 
+
+*wrote :
+
+wrote down the features I wont for my apps and searched in different website for the code to understand what I will do when I start my coding. 
+
+*designed :
+
+designed my app in Figma then In Android Studio.
+
+*wrote the code :
+
+created packages for database,adapter,viewmodel,fragments and splash . *run the app : tried to run the app and solved the errors.
+
+Problem solving strategy: decide the nature of the error (if it's syntax, runtime or logical) and Searched in different website like developer android,youtube,stackoverflow and medium asked programmers who have knowledge or Mr. Mohamed and Mr.Saad
 
 
