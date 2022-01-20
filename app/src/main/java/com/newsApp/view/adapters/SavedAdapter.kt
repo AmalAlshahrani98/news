@@ -40,7 +40,6 @@ class SavedAdapter(val context: Context, private val list: MutableList<Article>
 
     override fun onBindViewHolder(holder: news, position: Int) {
         val item = list[position]
-//      item=differ.currentlist[position]
         if(item.urlToImage.isNotEmpty() && item.urlToImage.isNotBlank())
         {
             Picasso.get().load(item.urlToImage).into(holder.saveImage)
@@ -50,10 +49,7 @@ class SavedAdapter(val context: Context, private val list: MutableList<Article>
         holder.description.text = item.description
         holder.editTextNote.setText(item.note)
 
-//        holder.saveImageButton.setOnClickListener{
-//          savedViewModel.addMyNewsLiveData(item)
-//
-//       }
+
         holder.deleteImageButton.setOnClickListener {
 
             list.remove(item)
@@ -112,7 +108,6 @@ class SavedAdapter(val context: Context, private val list: MutableList<Article>
         var name:TextView = itemView .findViewById(R.id.save_name_textview)
         var title : TextView = itemView .findViewById(R.id.save_title_textview)
         var description :TextView = itemView.findViewById(R.id.save_description_textview)
-//        var saveImageButton :TextView = itemView.findViewById(R.id.save_news_ImageButton)
         var deleteImageButton: ImageButton = itemView.findViewById(R.id.delete_image_Button)
         var editImageButton :ImageButton =itemView.findViewById(R.id.edit_image_Button)
         var editTextNote :EditText = itemView.findViewById(R.id.edit_text_note)

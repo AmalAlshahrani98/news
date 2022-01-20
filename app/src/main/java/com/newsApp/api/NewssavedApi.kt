@@ -10,6 +10,7 @@ import retrofit2.http.*
 interface NewssavedApi {
     @GET("/Article")
     suspend fun getMyNews(
+  @Query("userid" ) UserId :String
 
     ):Response<List<Article>>
 

@@ -50,17 +50,17 @@ private val newsViewModel: NewsViewModel by activityViewModels()
 
         })
 
-        newsViewModel.selectedItemMutableLiveDate.observe(viewLifecycleOwner,  {
-            it?.let { item ->
-            }
-
-        })
-
-        newsViewModel.newsErrorLiveData.observe(viewLifecycleOwner, {
-            it?.let {
-                Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
-            }
-        })
+//        newsViewModel.selectedItemMutableLiveDate.observe(viewLifecycleOwner,  {
+//            it?.let { item ->
+//            }
+//
+//        })
+//
+//        newsViewModel.newsErrorLiveData.observe(viewLifecycleOwner, {
+//            it?.let {
+//                Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+//            }
+//        })
 
 
     }}

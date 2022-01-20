@@ -1,5 +1,6 @@
 package com.newsApp.view.identity
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,8 @@ private const val TAG = "LoginActivity"
 
 lateinit var sharedPref:SharedPreferences
 lateinit var sharedPrefEditor:SharedPreferences.Editor
-
+const val USERID = "userId"
+var SHARED_PREF_FILE = "preference"
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,14 @@ class LoginActivity : AppCompatActivity() {
             finish()
 
         }
+        sharedPref = this.getSharedPreferences(SHARED_PREF_FILE, Context.MODE_PRIVATE)
+        if(sharedPref.getBoolean("is Loged",false)){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
         loginButton.setOnClickListener(){
             val email:String = emailAddress.text.toString().trim()
             val password : String = password.text.toString()
@@ -52,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
 
                                 sharedPrefEditor = sharedPref.edit()
                                 sharedPrefEditor.putBoolean("log", true)
+//                                sharedPrefEditor.putString(USERID,FirebaseAuth.getInstance().currentUser!!.uid)
                                 sharedPrefEditor.commit()
 
 

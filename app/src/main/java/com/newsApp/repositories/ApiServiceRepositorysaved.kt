@@ -1,6 +1,7 @@
 package com.newsApp.repositories
 
 import android.content.Context
+import com.google.firebase.auth.FirebaseAuth
 import com.newsApp.api.NewssavedApi
 import com.newsApp.model.Article
 import com.newsApp.model.SaveNews
@@ -19,7 +20,7 @@ class ApiServiceRepositoryEdit(val context: Context) {
 
     private val retrofitApi =retrofitService. create(NewssavedApi::class.java)
 
-    suspend fun getMyNews() = retrofitApi.getMyNews()
+    suspend fun getMyNews() = retrofitApi.getMyNews(FirebaseAuth.getInstance().currentUser!!.uid)
 
     suspend fun addMyNews(MyNewsBody:Article) = retrofitApi.addMyNews(MyNewsBody)
 

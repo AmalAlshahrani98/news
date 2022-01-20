@@ -21,9 +21,6 @@ class ApiServiceRepository(val context: Context) {
 
 
   suspend fun getNews() = retrofitApi.getNews()
-// suspend fun addNews(Article:Article) = retrofitApi.addMyNews(Article())
-//  suspend fun editNews(Article:Article) = retrofitApi.editMyNews(id,mynews)
-// suspend fun deleteNews(Article:Article) = retrofitApi.deleteMyNews(Article)
 
 
 

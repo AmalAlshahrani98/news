@@ -46,6 +46,12 @@ class RegisterActivity : AppCompatActivity() {
                              Toast.makeText(this,"User Registered Successfully",Toast.LENGTH_SHORT)
                                  .show()
 
+                             sharedPrefEditor = sharedPref.edit()
+                             sharedPrefEditor.putBoolean("log", true)
+//                             sharedPrefEditor.putString(USERID,FirebaseAuth.getInstance().currentUser!!.uid)
+                             sharedPrefEditor.commit()
+
+
                              val intent = Intent(this, MainActivity::class.java)
                              intent.putExtra("UserId",firebaseUser.uid)
                              intent.putExtra("Email",firebaseUser.email)

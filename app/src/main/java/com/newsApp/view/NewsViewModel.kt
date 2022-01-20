@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import com.newsApp.model.Article
 import com.newsApp.model.SaveNews
 import com.newsApp.model.news
@@ -22,7 +23,6 @@ class NewsViewModel: ViewModel() {
     val deleteErrorLiveData = MutableLiveData<String>()
     val newsLiveData = MutableLiveData<List<Article>>()
     val newsErrorLiveData = MutableLiveData<String>()
-   // val addMyNewsLiveData = MutableLiveData<String>()
     val addMyNewsErrorLiveData =MutableLiveData<String>()
 
 
@@ -58,6 +58,7 @@ class NewsViewModel: ViewModel() {
     fun addMyNewsLiveData(MyNewsBody: Article) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                MyNewsBody.userid = FirebaseAuth.getInstance().currentUser!!.uid
                 val response = apiRepoSaved.addMyNews(MyNewsBody)
                 if (response.isSuccessful) {
                     response.body()?.run {
