@@ -11,6 +11,7 @@ NEWS Android Application
 ## Overview:
 
 
+
 This project represents an android application **NEWS**
 which helps the user to read news whenever he want.
 
@@ -28,7 +29,7 @@ This application was built using the following technologies:
 
 ## Wireframes and User stories:
 
-
+Wireframes
 
 
 - As a user,I want to read news on app rather than tv or newspaper so that I can save my time.
