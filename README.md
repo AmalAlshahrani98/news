@@ -114,7 +114,7 @@ development process :
 
 * Searched:
 
-for different apps and what is the basic features in every app 
+Searched for different apps and what is the basic features in every app 
 
 * wrote :
 
