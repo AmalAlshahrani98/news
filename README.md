@@ -112,19 +112,19 @@ On the beginning searched for different news apps to have full understanding abo
 
 development process :
 
-*Searched:
+* Searched:
 
 for different apps and what is the basic features in every app 
 
-*wrote :
+* wrote :
 
 wrote down the features I wont for my apps and searched in different website for the code to understand what I will do when I start my coding. 
 
-*designed :
+* designed :
 
 designed my app in Figma then In Android Studio.
 
-*wrote the code :
+* wrote the code :
 
 created packages for database,adapter,viewmodel,fragments and splash . *run the app : tried to run the app and solved the errors.
 
@@ -132,9 +132,9 @@ Problem solving strategy: decide the nature of the error (if it's syntax, runtim
 
 ## Unsolved Problems which would be fixed in future iterations:
 
-* some minor issues regarding the enhancment of the design to make the user expereince more dynamic.
-* send notification to notifiy the user that there are some new news.
-* filter
+*  some minor issues regarding the enhancment of the design to make the user expereince more dynamic.
+*  send notification to notifiy the user that there are some new news.
+*  filter
 
 
 ## My favorite functions work:
