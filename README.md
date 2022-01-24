@@ -126,7 +126,11 @@ designed my app in Figma then In Android Studio.
 
 * wrote the code :
 
-created packages for database,adapter,viewmodel,fragments and splash . *run the app : tried to run the app and solved the errors.
+created packages for database,adapter,viewmodel,fragments and splash .
+
+*run the app :
+
+tried to run the app and solved the errors.
 
 Problem solving strategy: decide the nature of the error (if it's syntax, runtime or logical) and Searched in different website like developer android,youtube,stackoverflow and medium asked programmers who have knowledge or Mr. Mohamed and Mr.Saad
 
