@@ -128,7 +128,7 @@ designed my app in Figma then In Android Studio.
 
 created packages for database,adapter,viewmodel,fragments and splash .
 
-*run the app :
+* run the app :
 
 tried to run the app and solved the errors.
 
