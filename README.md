@@ -139,6 +139,4 @@ Problem solving strategy: decide the nature of the error (if it's syntax, runtim
 
 ## My favorite functions work:
 
-* Add,delete and edit fun cause the whole project depends on them
- 
-    add  to add any news that user want also to delete and edite and saved news 
+* Share news 
