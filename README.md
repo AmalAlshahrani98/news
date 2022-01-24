@@ -31,6 +31,8 @@ This application was built using the following technologies:
 
 ## Wireframes and User stories:
 
+<img width="9416" alt="news" src="https://user-images.githubusercontent.com/91452454/150757225-6aad843a-1deb-47d4-b7b8-cf104543d616.png">
+
 Wireframes
 
 
