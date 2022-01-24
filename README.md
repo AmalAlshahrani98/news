@@ -130,9 +130,9 @@ created packages for database,adapter,viewmodel,fragments and splash . *run the 
 
 Problem solving strategy: decide the nature of the error (if it's syntax, runtime or logical) and Searched in different website like developer android,youtube,stackoverflow and medium asked programmers who have knowledge or Mr. Mohamed and Mr.Saad
 
-## Unsolved Problems which would be fixed in future iterations:
+## Unsolved Problems which would be fixed in future :
 
-*  some minor issues regarding the enhancment of the design to make the user expereince more dynamic.
+
 *  send notification to notifiy the user that there are some new news.
 *  filter
 
